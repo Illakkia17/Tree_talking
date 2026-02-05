@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Talking Tree</title>
+
+<style>
+body {
+font-family: Arial;
+text-align:center;
+background:#f4f9f4;
+}
+
+img {
+width:300px;
+border-radius:12px;
+margin-top:20px;
+}
+
+select {
+padding:10px;
+font-size:16px;
+margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🌳 Talking Tree</h1>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Neem_tree.jpg/640px-Neem_tree.jpg">
+
+<h3>Select Language</h3>
+
+<select onchange="speakTree(this.value)">
+<option value="">Choose Language</option>
+<option value="english">English</option>
+<option value="tamil">Tamil</option>
+<option value="hindi">Hindi</option>
+</select>
+
+<script>
+function speakTree(lang){
+
+let text="";
+
+if(lang=="english"){
+text="Hello! I am Neem tree. I am known for medicinal benefits, air purification and pest control.";
+}
+
+if(lang=="tamil"){
+text="வணக்கம்! நான் வேப்பமரம். மருந்து பயன்கள் மற்றும் காற்றை சுத்தப்படுத்த உதவுகிறேன்.";
+}
+
+if(lang=="hindi"){
+text="नमस्ते! मैं नीम का पेड़ हूँ। मैं औषधीय गुणों और हवा को शुद्ध करने के लिए जाना जाता हूँ।";
+}
+
+let speech = new SpeechSynthesisUtterance(text);
+speech.lang = lang;
+speechSynthesis.speak(speech);
+}
+</script>
+
+</body>
+</html>
